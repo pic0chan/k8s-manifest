@@ -14,7 +14,7 @@ spec:
   mountPath: /var/lib/registry
   ports:
   - containerPort: 5000
-  protocol: TCP
+    protocol: TCP
   - name: registry-web
   image: hyper/docker-registry-web:v0.1.2
   env:
@@ -22,7 +22,7 @@ spec:
   value: private-registry
   ports:
   - containerPort: 8080
-  protocol: TCP
+    protocol: TCP
   volumes:
   - name: registry-volume
   hostPath:
