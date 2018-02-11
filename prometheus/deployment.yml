@@ -43,3 +43,5 @@ spec:
       - name: secrets-volume
         hostPath:
           path: /var/run/secrets
+      nodeSelector:
+        type: node01
