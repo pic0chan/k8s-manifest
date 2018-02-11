@@ -22,6 +22,7 @@ spec:
         image: prom/prometheus:v1.8.2
         args:
         - -config.file=/mnt/etc/prometheus.yml
+        - -storage.local.path=/mnt/data
         ports:
         - containerPort: 9090
         volumeMounts:
@@ -36,7 +37,9 @@ spec:
         configMap:
           name: prometheus-config
       - name: data-volume
-        emptyDir: {}
+        hostPath:
+          path: /opt/kubernetes/volumes/docker/prometheus/data
+        #emptyDir: {}
       - name: secrets-volume
         hostPath:
           path: /var/run/secrets
