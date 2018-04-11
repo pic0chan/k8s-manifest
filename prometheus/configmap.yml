@@ -209,3 +209,11 @@ data:
       - source_labels: [__meta_kubernetes_pod_name]
         action: replace
         target_label: kubernetes_pod_name
+
+    - job_name: 'static-target'
+
+      static_configs:
+        - targets:
+          - '192.168.1.100:9100' # kvm
+          - '192.168.1.26:9100'
+          - '192.168.1.86:9100' # es01
